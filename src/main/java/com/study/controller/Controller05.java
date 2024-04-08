@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("main5")
 public class Controller05 {
+    // Spring 코드를 줄여 사용(annotation 사용해서)
 
     // /main5/sub1?city=seoul
     // /main5/sub1?city=london
