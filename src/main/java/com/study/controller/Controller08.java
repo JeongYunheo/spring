@@ -72,7 +72,7 @@ public class Controller08 {
 
     @RequestMapping("sub7")
     public void sub7(Model model) {
-        List<String> data = List.of("😊", "❤️", "*★,°*:.☆(￣▽￣)/$:*.°★* 。");
+        List<String> data = List.of("😊", "❤️", "😍");
         model.addAttribute("myList", data);
 
         model.addAttribute("yourList", List.of(10, 5, 0));
