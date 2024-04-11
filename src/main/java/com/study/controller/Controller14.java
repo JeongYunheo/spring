@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping;
 
 import java.util.List;
 
@@ -13,11 +12,6 @@ import java.util.List;
 @RequestMapping("main14")
 public class Controller14 {
 
-    private final BeanNameUrlHandlerMapping beanNameHandlerMapping;
-
-    public Controller14(BeanNameUrlHandlerMapping beanNameHandlerMapping) {
-        this.beanNameHandlerMapping = beanNameHandlerMapping;
-    }
 
     @RequestMapping("sub1")
     public void sub1(Model model) {

@@ -4,45 +4,46 @@
 <head>
     <title>Title</title>
     <style>
-        .table {
-            border-collapse: collapse;
+        table, th, td, tr {
             border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table {
             width: 100%;
         }
 
-        .table th,
-        .table td {
-            border: 1px solid black;
+        th, td {
             text-align: center;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
-<table class="table">
+<h3>선수 목록</h3>
+<table>
     <thead>
     <tr>
-        <th>No.</th>
-        <th>이름</th>
-        <th>팀</th>
-        <th>국적</th>
-        <th>종목</th>
-        <th>포지션</th>
+        <td>No.</td>
+        <td>이름</td>
+        <td>팀</td>
+        <td>국적</td>
+        <td>종목</td>
+        <td>포지션</td>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${playerList}" var="play" varStatus="no">
+    <c:forEach items="${playerList}" var="player" varStatus="status">
         <tr>
-            <td>${no.count}</td>
-            <td>${play.name}</td>
-            <td>${play.team}</td>
-            <td>${play.country}</td>
-            <td>${play.event}</td>
+            <td>${status.count}</td>
+            <td>${player.name}</td>
+            <td>${player.team}</td>
+            <td>${player.country}</td>
+            <td>${player.event}</td>
             <td>
-                <c:forEach items="${play.positions}" var="position" varStatus="start">
+                <c:forEach items="${player.positions}" var="position" varStatus="status">
                     ${position}
-                    <c:if test="${not start.last}">
+                    <c:if test="${not status.last}">
                         ,
                     </c:if>
                 </c:forEach>
@@ -51,6 +52,5 @@
     </c:forEach>
     </tbody>
 </table>
-
 </body>
 </html>
