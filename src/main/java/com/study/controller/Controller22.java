@@ -167,12 +167,13 @@ public class Controller22 {
     @PostMapping("sub17")
     public String method17(String id, String pw, RedirectAttributes rttr) {
         boolean ok = id.equals(pw);
+
         if (ok) {
-            rttr.addAttribute("massage", "login");
+            rttr.addFlashAttribute("message", "login 성공");
             return "redirect:/main22/sub18";
         } else {
-            rttr.addAttribute("massage", "fail");
-            return "redirect:/main22/sub17";
+            rttr.addFlashAttribute("message", "아이디 패스워드 확인");
+            return "redirect:/main22/sub16";
         }
     }
 
