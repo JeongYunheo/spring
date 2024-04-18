@@ -12,5 +12,5 @@ public class MyBean254Customer {
     private String address;
     private String city;
     private String postalCode;
-    private String country;
+    private String countryName;
 }

@@ -59,5 +59,5 @@ WHERE OrderDate >= '1997-05-01'
 SELECT *
 FROM Customers
 WHERE CustomerName LIKE '%be%'
-   OR ContactName LIKE '%be%'
+   OR ContactName LIKE '%be%';
 

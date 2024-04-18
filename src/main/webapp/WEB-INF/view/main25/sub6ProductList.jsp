@@ -22,6 +22,27 @@
     <%--    form의 button 요소는 submit 버튼 역할을 함--%>
     <input type="submit" value="조회">
 </form>
+<h3> 카테고리 선택</h3>
+<form>
+    카테고리 선택
+    <div>
+        <select name="category" multiple>
+            <c:forEach items="${categoryList}" var="category">
+                <c:set value="false" var="selected"/>
+                <c:forEach items="${prevCategorySelect}" var="prevSelect">
+                    <c:if test="${category.id == prevSelect}">
+                        <c:set value="true" var="selected"/>
+                    </c:if>
+                </c:forEach>
+
+                <option ${selected ? "selected" : ""} value="${category.id}">${category.name}</option>
+            </c:forEach>
+        </select>
+    </div>
+    <div>
+        <button>조회</button>
+    </div>
+</form>
 <hr>
 <c:if test="${empty products}" var="emptyProducts">
     조회된 내용이 없습니다

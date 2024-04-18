@@ -17,7 +17,7 @@
 <body>
 <h3>직원들 조회 메소드</h3>
 <form action="/main25/sub8">
-    <input type="text" name="search" placeholder="이름을 입력하세요">
+    <input value="${prevSearch}" type="text" name="search" placeholder="이름을 입력하세요">
     <input type="submit" value="검색">
 </form>
 <table>
@@ -33,12 +33,14 @@
     </thead>
     <tbody>
     <c:forEach items="${employees}" var="employee">
-        <td>${employee.id}</td>
-        <td>${employee.firstName}</td>
-        <td>${employee.lastName}</td>
-        <td>${employee.birth}</td>
-        <td>${employee.photo}</td>
-        <td>${employee.note}</td>
+        <tr>
+            <td>${employee.id}</td>
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.birth}</td>
+            <td>${employee.photo}</td>
+            <td>${employee.note}</td>
+        </tr>
     </c:forEach>
     </tbody>
 </table>

@@ -268,11 +268,10 @@ public class Controller25 {
                 WHERE FirstName LIKE ?
                 OR LastName LIKE ?
                 """;
-        String keyword = "%" + search + "%";
         Connection cnn = dataSource.getConnection();
         PreparedStatement pstmt = cnn.prepareStatement(sql);
-        pstmt.setString(1, keyword);
-        pstmt.setString(2, keyword);
+        pstmt.setString(1, "%" + search + "%");
+        pstmt.setString(2, "%" + search + "%");
         ResultSet rs = pstmt.executeQuery();
 
         try (cnn; pstmt; rs) {
@@ -289,7 +288,7 @@ public class Controller25 {
             }
         }
         model.addAttribute("employees", list);
-        model.addAttribute("prevSearch", keyword);
+        model.addAttribute("prevSearch", search);
         return "main25/sub8EmployeeList";
     }
 }

@@ -8,7 +8,7 @@
 <h3>상품명으로 상품 조회</h3>
 <form action="/main25/sub3">
     상품명
-    <input type="text" name="name" placeholder="조회할 상품명을 입력하세요">
+    <input type="text" name="search" placeholder="조회할 상품명을 입력하세요">
     <input type="submit" value="조회">
 </form>
 <hr>

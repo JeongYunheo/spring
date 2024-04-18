@@ -15,24 +15,6 @@
     </style>
 </head>
 <body>
-<h3>고객 목록</h3>
-<%--action 의 값이 없거나 생략되면 --%>
-<form>
-    이름
-    <input value="${prevSearch}" type="text" placeholder="조회할 고객 이름을 입력하세요." name="search">
-    <input type="submit" value="조회">
-</form>
-<hr>
-<form>
-    국가
-    <select name="country" multiple>
-        <c:forEach items="${countryList}" var="country">
-            <option value="${country}">${country}</option>
-        </c:forEach>
-    </select>
-    <button>조회</button>
-</form>
-<hr>
 <table>
     <thead>
     <tr>
@@ -46,7 +28,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${customers}" var="customer">
+    <c:forEach items="${customerList}" var="customer">
         <tr>
             <td>${customer.id}</td>
             <td>${customer.name}</td>
