@@ -4,7 +4,7 @@
 <head>
     <title>Title</title>
     <style>
-        table, tr, th, td {
+        thead, th, tr, td {
             border: 1px solid black;
             border-collapse: collapse;
         }
@@ -14,9 +14,11 @@
         }
 
         .active {
-            background-color: darkseagreen;
-            color: black;
+            background-color: cadetblue;
+            color: white;
+            font-size: larger;
         }
+
     </style>
 </head>
 <body>
@@ -24,41 +26,38 @@
     <thead>
     <tr>
         <th>id</th>
-        <th>name</th>
-        <th>contact</th>
-        <th>address</th>
-        <th>city</th>
-        <th>post</th>
-        <th>country</th>
+        <th>first</th>
+        <th>last</th>
+        <th>birth</th>
+        <th>photo</th>
+        <th>note</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${customerList}" var="customer">
+    <c:forEach items="${employees}" var="employee">
         <tr>
-            <td>${customer.id}</td>
-            <td>${customer.name}</td>
-            <td>${customer.contactName}</td>
-            <td>${customer.address}</td>
-            <td>${customer.city}</td>
-            <td>${customer.postalCode}</td>
-            <td>${customer.countryName}</td>
+            <td>${employee.id}</td>
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.birth}</td>
+            <td>${employee.photo}</td>
+            <td>${employee.note}</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 <div>
     <c:if test="${currentPage != 1}">
-        <c:url var="link" value="/main27/sub1">
+        <c:url var="link" value="/main27/sub2">
             <c:param name="page" value="1"/>
         </c:url>
         <span>
-        <a href="${link}">맨앞</a>
-    </span>
+            <a href="${link}">맨앞</a>
+        </span>
     </c:if>
 
-
     <c:if test="${not empty prevPageNumber}">
-        <c:url var="link" value="/main27/sub1">
+        <c:url var="link" value="/main27/sub2">
             <c:param name="page" value="${prevPageNumber}"/>
         </c:url>
         <span>
@@ -67,7 +66,7 @@
     </c:if>
 
     <c:forEach begin="${beginPageNumber}" end="${endPageNumber}" var="pageNumber">
-        <c:url var="link" value="/main27/sub1">
+        <c:url var="link" value="/main27/sub2">
             <c:param name="page" value="${pageNumber}"/>
         </c:url>
         <span>
@@ -76,23 +75,22 @@
     </c:forEach>
 
     <c:if test="${not empty nextPageNumber}">
-        <c:url var="link" value="/main27/sub1">
+        <c:url var="link" value="/main27/sub2">
             <c:param name="page" value="${nextPageNumber}"/>
         </c:url>
         <span>
-        <a href="${link}">다음</a>
+            <a href="${link}">다음</a>
         </span>
     </c:if>
 
     <c:if test="${currentPage != lastPageNumber}">
-        <c:url var="link" value="/main27/sub1">
+        <c:url var="link" value="/main27/sub2">
             <c:param name="page" value="${lastPageNumber}"/>
         </c:url>
         <span>
-        <a href="${link}">맨뒤</a>
+            <a href="${link}">맨뒤</a>
         </span>
     </c:if>
-
 
 </div>
 </body>
