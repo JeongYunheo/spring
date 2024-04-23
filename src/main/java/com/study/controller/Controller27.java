@@ -22,9 +22,7 @@ public class Controller27 {
     @GetMapping("sub1")
     public String sub1(@RequestParam(defaultValue = "1") Integer page,
                        Model model) throws SQLException {
-        if (page == null) {
-            page = 1;
-        }
+        
         int offset = (page - 1) * 10;
         String sql = """
                 SELECT *

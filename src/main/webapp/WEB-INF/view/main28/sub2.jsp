@@ -33,7 +33,7 @@
         </div>
         <div>
             참고
-            <input type="text" name="note">
+            <textarea name="notes" id="" cols="30" rows="10"></textarea>
         </div>
         <div>
             <button>등록</button>

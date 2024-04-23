@@ -53,11 +53,11 @@ public class Controller28 {
     }
 
     // 새 직원 입력하기
-    @GetMapping("sub3")
+    @GetMapping("sub2")
     public void sub3() {
     }
 
-    @PostMapping("sub3")
+    @PostMapping("sub2")
     public String sub4(MyBean258Employees employees, RedirectAttributes rttr) throws SQLException {
         String sql = """
                 INSERT INTO Employees 
@@ -75,10 +75,12 @@ public class Controller28 {
             pstmt.setString(5, employees.getNote());
 
             int rowCount = pstmt.executeUpdate();
-            if (rowCount > 0) {
+            if (rowCount == 1) {
                 rttr.addFlashAttribute("message", "직원 등록이 완료되었습니다");
+            } else {
+                rttr.addFlashAttribute("message", "직원 등록이 실패했습니다");
             }
         }
-        return "redirect:/main28/sub3";
+        return "redirect:/main28/sub2";
     }
 }
