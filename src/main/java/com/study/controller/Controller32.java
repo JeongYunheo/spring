@@ -17,24 +17,24 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequiredArgsConstructor
 @RequestMapping("main32")
 public class Controller32 {
-    private final Mapper03 mapper;
+    private final Mapper03 mapper03;
     private final Mapper02 mapper02;
 
     @RequestMapping("sub1")
     public void method1() {
-        int rowCount = mapper.deleteOneCustomer();
+        int rowCount = mapper03.deleteOneCustomer();
         System.out.println(rowCount + "명 고객 삭제 ");
     }
 
     @RequestMapping("sub2")
     public void method2(Integer cid) {
-        int rowCount = mapper.deleteOneCustomerByID(cid);
+        int rowCount = mapper03.deleteOneCustomerByID(cid);
         System.out.println(rowCount + "명 고객 삭제됨");
     }
 
     @RequestMapping("sub3")
     public void method3(int eid) {
-        int rowCount = mapper.deleteOneEmployeeID(eid);
+        int rowCount = mapper03.deleteOneEmployeeID(eid);
         System.out.println(rowCount + "명 고객님 삭제");
     }
 
@@ -42,13 +42,13 @@ public class Controller32 {
     // /main32/sub4?name=흥민&contactName=캡틴&city=london&country=한국&address=토트넘
     @GetMapping("sub4")
     public void method4(MyBean254Customer customer) {
-        mapper.insetCustomer(customer);
+        mapper03.insetCustomer(customer);
     }
 
     // main32/sub5?firstName=hengmin&lastName=son&birth=2023-07-07&photo=dsagasg&note=adfasdfaf
     @GetMapping("sub5")
     public String method5(MyBean258Employees employee, RedirectAttributes rttr) {
-        int row = mapper.insertEmployee(employee);
+        int row = mapper03.insertEmployee(employee);
 
         if (row > 0) {
             rttr.addAttribute("message", row + "명 직원이 입력되었습니다");
@@ -69,7 +69,7 @@ public class Controller32 {
 
     @PostMapping("sub6/update")
     public String method7(MyBean258Employees employee, RedirectAttributes rttr) {
-        int i = mapper.updateEmployee(employee);
+        int i = mapper03.updateEmployee(employee);
         if (i > 0) {
             rttr.addFlashAttribute("message", i + "명 직원이 수정되었습니다");
         } else {
@@ -81,7 +81,7 @@ public class Controller32 {
     }
 
     @GetMapping("sub7")
-    public void method7(@RequestParam(value = "id", required = false) Integer cid,
+    public void method8(@RequestParam(value = "id", required = false) Integer cid,
                         Model model) {
         if (cid != null) {
             MyBean254Customer c = mapper02.selectOneCustomer4(cid);
@@ -90,8 +90,8 @@ public class Controller32 {
     }
 
     @PostMapping("sub7/update")
-    public String method8(MyBean254Customer customer, RedirectAttributes rttr) {
-        int i = mapper.updateCustomer(customer);
+    public String method9(MyBean254Customer customer, RedirectAttributes rttr) {
+        int i = mapper03.updateCustomer(customer);
         if (i > 0) {
             rttr.addFlashAttribute("message", i + "명이 수정되었습니다");
         } else {

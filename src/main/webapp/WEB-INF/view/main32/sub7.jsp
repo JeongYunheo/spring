@@ -6,7 +6,7 @@
 </head>
 <body>
 <div style="padding: 20px">
-    수정이 완료되었습니다
+    ${message}
 </div>
 <h3>고객 정보 조회 및 수정</h3>
 <form action="">

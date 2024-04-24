@@ -22,6 +22,7 @@ public class Application5 {
 
 // spring bean의 이름을 주지 않으면
 // 클래스명을 lowerCamelCase로 바꾼 것을 이름으로 사용
+// 띄어쓰기없이 쓰기 위해 합성어 시작을 대문자로
 @Component
 class MyClass51 {
 
