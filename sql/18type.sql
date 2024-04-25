@@ -129,6 +129,8 @@ INSERT INTO my_table10(title, name, age, price, published, inserted)
 VALUES ('이것이 자바다', '신용권', 40, 3421.123, '1999-10-01', '1999-10-10 12:12:12'),
        ('스프링부트', '신용권', 40, 12345.123, '1888-10-10', '1888-12-12 12:12:10');
 
+
 SELECT *
 FROM my_table9;
-
+SELECT *
+FROM my_table10;
