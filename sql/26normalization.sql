@@ -82,7 +82,7 @@ INSERT INTO phone_number
 VALUES (3, '7890');
 SELECT *
 FROM phone_number;
--- 1:n 관계
+-- 1:n/일대다 관계
 
 
 # Second Normal Form : 2NF, 제2 정규화(형)
