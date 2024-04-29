@@ -47,5 +47,3 @@ FROM employee
 WHERE manager_id = (SELECT id
                     FROM employee
                     WHERE name = '손흥민');
-
-
