@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("main34")
@@ -35,7 +36,7 @@ public class Controller34 {
     // main34/sub2?year=1996&month=7
     @GetMapping("sub2")
     public void sub2(Integer year, Integer month, Model model) {
-        List<Mapper05.CustomerPurchase> value = service.customerPurchaseList(year, month);
+        List<Map<String, Object>> value = service.customerPurchaseList(year, month);
         value.forEach(System.out::println);
         model.addAttribute("purchaseList", value);
         model.addAttribute("year", year);

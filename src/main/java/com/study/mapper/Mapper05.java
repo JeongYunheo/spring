@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface Mapper05 {
@@ -31,16 +32,10 @@ public interface Mapper05 {
             """)
     List<EmployeeIncome> selectIncomeList(String from, String to);
 
-    @Data
-    static class CustomerPurchase {
-        private Integer customerID;
-        private String customerName;
-        private Double income;
-    }
 
     @Select("""
             SELECT c.CustomerID,
-                   c.CustomerName,
+                   c.CustomerName AS customerName,
                     SUM(od.Quantity*p.Price) AS income
             FROM Orders o JOIN Customers c ON c.CustomerID = o.CustomerID
                           JOIN OrderDetails od ON od.OrderID = o.OrderID
@@ -49,5 +44,5 @@ public interface Mapper05 {
             GROUP BY c.CustomerID
             ORDER BY income DESC
             """)
-    List<CustomerPurchase> selectCustomerPurchaseList(String from, String to);
+    List<Map<String, Object>> selectPurchaseList(String from, String to);
 }
