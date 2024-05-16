@@ -43,4 +43,14 @@ public class Controller42 {
 
     }
 
+    @GetMapping("sub4")
+    @ResponseBody
+    public Map<String, Object> sub4() {
+        return Map.of("id", 3,
+                "country", "usa",
+                "height", 188.09,
+                "foods", List.of("pizza", "latte"),
+                "hasAccess", false);
+    }
+    
 }
