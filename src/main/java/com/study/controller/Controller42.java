@@ -1,6 +1,7 @@
 package com.study.controller;
 
 import com.study.domain.MyBean411;
+import com.study.domain.MyBean412;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,5 +63,19 @@ public class Controller42 {
         obj.setAge(55);
 
         return obj;
+    }
+
+    @GetMapping("sub6")
+    @ResponseBody
+    public MyBean412 sub6() {
+        MyBean412 myBean412 = new MyBean412();
+        myBean412.setTeam("spurs");
+        myBean412.setMarried(false);
+        MyBean411 myBean411 = new MyBean411();
+        myBean411.setName("이강인");
+        myBean411.setAge(55);
+        myBean412.setInfo(myBean411);
+        myBean412.setName("강인");
+        return myBean412;
     }
 }
